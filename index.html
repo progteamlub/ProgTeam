@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <style>
+input {color: #00000; background: #fffff;}
+  </style>
+ </head>
+ <body>
+ 
+ 
+ 
+ 
+ 
+ 
+ </body>
+</html>
+
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+ </head>
+ <body>
+  <p><img src="base/.png" alt=></p>
+ </body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+body {
+background: #000000 url(base/fon3.GIF); /* Цвет фона и путь к файлу */
+color: #fff; /* Цвет текста */
+}
+</style>
+</head>
+<body>
+
+</body>
+</html>
+
+<title>Обратная связь</title>
+<!-- Создаём форму и указываем её обработчик и метод -->
+<form action="" method="post" name="form">
+<center>
+  <!-- Поле ввода имени -->
+
+  <input name="name" type="text" placeholder="name" class="inputForm"/>
+
+  <br>
+
+  <!-- Поле ввода почты  -->
+
+  <input name="email" type="text" placeholder="email" class="inputForm"/>
+
+  <br>
+
+  <!-- Поле ввода для темы сообщения -->
+
+  <input size="40" name="header" type="text" placeholder="header" class="inputForm"/>
+
+  <br>
+
+  <!-- Текстовое поле для самого сообщения -->
+
+  <textarea cols="55" name="message" rows="10"> 
+
+  </textarea>
+
+  <br>
+
+  <!-- Кнопка с надписью «Отправить», которая запускает обработчик формы -->
+
+  <input type="submit" value="Отправить" />
+  
+  <link rel="stylesheet" href="setting.css">
+  
+</center>
+
+ </form>
+
+<!-- Через 10 секунд после появления сообщения об отправке или ошибке — отправляемся на сайт Кода :) -->
+
+<meta charset="UTF-8" />
+
+ 
+<!-- Начался блок PHP -->
+
+<?php
+
+// Получаем значения переменных из пришедших данных
+
+$name = $_POST['name'];
+
+$email = $_POST['email'];
+
+$header = $_POST['header'];
+
+$message = $_POST['message'];
+
+ 
+// Формируем сообщение для отправки, в нём мы соберём всё, что ввели в форме 
+
+$mes = "Имя: $name \nE-mail: $email \nТема: $header \nТекст: $message";
+
+ 
+// Пытаемся отправить письмо по заданному адресу
+
+// Если нужно, чтобы письма всё время уходили на ваш адрес — замените первую переменную $email на свой адрес электронной почты
+
+$send = mail (majlov988@mail.ru,$header,$mes,"Content-type:text/plain; charset = UTF-8\r\nFrom:$email");
+
+ 
+// Если отправка прошла успешно — так и пишем 
+
+if ($send == 'true')
+
+{echo "Сообщение отправлено";}
+
